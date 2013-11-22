@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#3c3c3c">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -24,7 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 			android:layout_gravity="center_horizontal"
-			android:inputType="number"			
+			android:inputType="number"	
+			android:textColor="#ffffff"			
 			android:text="1"/>
 		
 		<Button
@@ -45,17 +47,20 @@
 			android:background="@drawable/btn_grey"
             android:text="Ziva !" />
     </LinearLayout>
-	
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2px"
-        android:background="#3c3c3c" />
-    
-    <ListView
-        android:id="@+id/video_list"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-		
-        android:cacheColorHint="#ffffff" />
+
+    <GridView
+		android:id="@+id/video_grid"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:numColumns="4"
+		android:horizontalSpacing="10dp"
+		android:verticalSpacing="10dp"
+		android:columnWidth="200px"
+		android:gravity="center"
+		android:layout_marginTop="10px"
+		android:stretchMode="columnWidth" 
+		android:background="#3c3c3c">  
+ 
+</GridView>
 
 </LinearLayout>

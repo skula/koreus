@@ -12,44 +12,43 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.GridView;
+import android.widget.TextView;
 
 import com.skula.koreus.models.Video;
 import com.skula.koreus.services.KoreusService;
 
-
 public class MainActivity extends Activity {
-	private ListView itemList;
-	private EditText pageNum;
-	
+	private TextView pageNumber;
+	private GridView gridView;
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-		StrictMode.setThreadPolicy(policy);	
+        StrictMode.setThreadPolicy(policy);   
 		setContentView(R.layout.activity_main);
-		
-		this.pageNum = (EditText) findViewById(R.id.page_number);
-		
-		this.itemList = (ListView) findViewById(R.id.video_list);
-		itemList.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-				Video item = (Video) itemList.getItemAtPosition(position);
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getUrl()));
+
+		pageNumber = (TextView) findViewById(R.id.page_number);
+		gridView = (GridView) findViewById(R.id.video_grid);
+		gridView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View v,
+					int position, long id) {
+				Video item = (Video) gridView.getItemAtPosition(position);
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri
+						.parse(item.getUrl()));
 				startActivity(browserIntent);
 			}
 		});
-		
-		Button btnSearch = (Button)findViewById(R.id.btn_search);
+
+		Button btnSearch = (Button) findViewById(R.id.btn_search);
 		btnSearch.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String np = pageNum.getText().toString();
-				if(!np.isEmpty()){//!np.matches("\\d")){
+				String np = pageNumber.getText().toString();
+				if (!np.isEmpty()) {// !np.matches("\\d")){
 					try {
-						fillList(KoreusService.searchVideos(np));
+						fillGrid(KoreusService.searchVideos(np));
 					} catch (Exception e) {
 					}
 				}
@@ -57,9 +56,10 @@ public class MainActivity extends Activity {
 		});
 	}
 
-	private void fillList(List<Video> list) {		
+	private void fillGrid(List<Video> list) {
 		Video itemArray[] = (Video[]) list.toArray(new Video[list.size()]);
-		VideoAdapter adapter = new VideoAdapter(this, R.layout.videolayout, itemArray);
-		itemList.setAdapter(adapter);
+		VideoAdapter adapter = new VideoAdapter(this, R.layout.videolayout,
+				itemArray);
+		gridView.setAdapter(adapter);
 	}
 }
