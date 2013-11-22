@@ -31,7 +31,7 @@ public class KoreusService {
 					url = url.substring(0, url.indexOf(".html"));
 					title = line.substring(line.indexOf("Video\" title=\"") + 14, line.indexOf("\" width=\"150\""));					
 					pict = line.substring(line.indexOf("http://thumbs"), line.indexOf("\" alt=\""));
-					res.add(new Video(url, title, null));
+					res.add(new Video(url, escapeHTML(title), pict));
 				}
 			}
 			br.close();
@@ -39,6 +39,26 @@ public class KoreusService {
 			System.out.println(e.toString());
 		}
 		return res;
+	}
+	
+	private static String escapeHTML(String line){
+		line = line.replace("&agrave;","à");
+		line = line.replace("&acirc;","â");
+		line = line.replace("&auml;","ä");
+		line = line.replace("&ccedil;","ç");
+		line = line.replace("&egrave;","è");
+		line = line.replace("&eacute;","é");
+		line = line.replace("&ecirc;","ê");
+		line = line.replace("&euml;","ë");
+		line = line.replace("&icirc;","î");
+		line = line.replace("&iuml;","ï");
+		line = line.replace("&ocirc;","ô");
+		line = line.replace("&ouml;","ö");
+		line = line.replace("&ugrave;","ù");
+		line = line.replace("&ucirc;","û");
+		line = line.replace("&uuml;","ü");
+		line = line.replace("&#039;","'");
+		return line;
 	}
 	
 	/*public static List<Map<String, String>> searchVideos(String page) {

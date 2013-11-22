@@ -6,42 +6,56 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" 
+		android:background="#333333">
 
-        <TextView
+        <Button
+            android:id="@+id/prev_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Numero de la page :"
-            android:layout_marginLeft="10px"
-            android:textColor="#0080FF"
-            android:textSize="26px" />
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="Page precedente" />
 
         <EditText
             android:id="@+id/page_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" 
+            android:layout_weight="1"
+			android:layout_gravity="center_horizontal"
+			android:inputType="number"			
 			android:text="1"/>
-
+		
+		<Button
+            android:id="@+id/next_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="Page suivante" />
+			
         <Button
             android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
             android:text="Ziva !" />
     </LinearLayout>
 	
     <View
         android:layout_width="fill_parent"
         android:layout_height="2px"
-        android:layout_marginTop="5px"
-        android:background="#0080FF" />
+        android:background="#3c3c3c" />
     
     <ListView
         android:id="@+id/video_list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+		
         android:cacheColorHint="#ffffff" />
 
 </LinearLayout>

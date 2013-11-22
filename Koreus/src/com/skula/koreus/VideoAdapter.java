@@ -42,6 +42,9 @@ public class VideoAdapter extends ArrayAdapter<Video> {
 			pic.setImageBitmap(btm);
 		}
 		
+		/*new DownloadImageTask((ImageView) rowView.findViewById(R.id.video_pic))
+            .execute(item.getPic());
+		*/
 		return rowView;
 	}
 }

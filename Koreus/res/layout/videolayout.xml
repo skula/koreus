@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+	android:background="#333333">
     <TextView
         android:id="@+id/video_url"
         android:layout_width="wrap_content"
@@ -11,18 +12,13 @@
 		
 	<ImageView
         android:id="@+id/video_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:padding="10px" />
+        android:layout_width="200px"
+        android:layout_height="200px"/>
 		
     <TextView
         android:id="@+id/video_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20px"
-        android:layout_marginBottom="10px"
-        android:layout_marginLeft="30px"
-        android:textColor="#0080FF"
-        android:textSize="30px" />
+        android:textColor="#ffffff"
+        android:textSize="15px" />
 </LinearLayout>

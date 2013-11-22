@@ -12,6 +12,7 @@ public class PictureUtils{
 			newurl = new URL(url);
 			return BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
 		} catch (Exception e) {
+			int a;
 			return null;
 		}
 	}
