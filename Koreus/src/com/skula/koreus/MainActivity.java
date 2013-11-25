@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -14,6 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.skula.koreus.models.Video;
 import com.skula.koreus.services.KoreusService;
@@ -25,8 +25,9 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);   
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+				.permitAll().build();
+		StrictMode.setThreadPolicy(policy);
 		setContentView(R.layout.activity_main);
 
 		pageNumber = (TextView) findViewById(R.id.page_number);
@@ -35,9 +36,17 @@ public class MainActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
 				Video item = (Video) gridView.getItemAtPosition(position);
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri
-						.parse(item.getUrl()));
-				startActivity(browserIntent);
+
+				if (item.getUrl() != null) {
+					Intent intent = new Intent(v.getContext(),
+							VideoPlayerActivity.class);
+					intent.putExtra("url", item.getUrl());
+					startActivity(intent);
+				} else {
+					Toast.makeText(v.getContext(),
+							"Erreur lors du chargement de la video...",
+							Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
 

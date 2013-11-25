@@ -11,11 +11,34 @@ import java.util.List;
 import com.skula.koreus.models.Video;
 
 public class KoreusService {
+	public static String getVideoUri(String url){
+		String res = null;
+		try {
+
+			URLConnection connection = new URL(url).openConnection();
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					connection.getInputStream()));
+			String line = "";
+			boolean found = false;
+			while (!found && (line = br.readLine()) != null) {
+				line = line.trim();
+				if (line.contains(".mp4") && line.contains("http://")) {
+					res = line.substring(line.indexOf("http://"), line.indexOf(".mp4")+4);
+					found = true;
+					br.close();
+					return res;
+				}
+			}
+			br.close();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		return null;
+	}
+	
 	public static List<Video> searchVideos(String page) {
 		List<Video> res = new ArrayList<Video>();
 		try {
-			// File f = new File("C:/Users/KULAST/Desktop/Sopra/sopra/NF/koreus/koreusList.html");
-			// BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
 			URLConnection connection = new URL("http://www.koreus.com/videos/nouveau/").openConnection();
 			BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line = "";
@@ -27,8 +50,6 @@ public class KoreusService {
 				line = line.trim();
 				if(line.contains("td valign=\"top\"")){
 					url = line.substring(line.indexOf("http://www.koreus.com"), line.indexOf("\"><img"));
-					url = url.replace("video", "embed");
-					url = url.substring(0, url.indexOf(".html"));
 					title = line.substring(line.indexOf("Video\" title=\"") + 14, line.indexOf("\" width=\"150\""));					
 					pict = line.substring(line.indexOf("http://thumbs"), line.indexOf("\" alt=\""));
 					res.add(new Video(url, escapeHTML(title), pict));
