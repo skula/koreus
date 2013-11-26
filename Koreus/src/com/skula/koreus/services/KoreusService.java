@@ -39,7 +39,7 @@ public class KoreusService {
 	public static List<Video> searchVideos(String page) {
 		List<Video> res = new ArrayList<Video>();
 		try {
-			URLConnection connection = new URL("http://www.koreus.com/videos/nouveau/").openConnection();
+			URLConnection connection = new URL("http://www.koreus.com/videos/nouveau/"+page).openConnection();
 			BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line = "";
 			

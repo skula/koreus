@@ -4,6 +4,9 @@
     android:orientation="vertical" 
     android:background="#3c3c3c">
 
+	<!-- TO ADD: -->
+	<!--android:theme="@android:style/Theme.NoTitleBar.Fullscreen"-->
+	
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -11,41 +14,67 @@
 		android:background="#333333">
 
         <Button
-            android:id="@+id/prev_page"
+            android:id="@+id/btn_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#32b3e2"
+			android:background="@drawable/btn_grey"
+            android:text="&lt;&lt;" />
+
+        <Button
+            android:id="@+id/btn_page1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 			android:textColor="#ffffff"
 			android:background="@drawable/btn_grey"
-            android:text="Page precedente" />
-
-        <EditText
-            android:id="@+id/page_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-			android:layout_gravity="center_horizontal"
-			android:inputType="number"	
-			android:textColor="#ffffff"			
-			android:text="1"/>
+            android:text="1"/>
 		
 		<Button
-            android:id="@+id/next_page"
+            android:id="@+id/btn_page2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
 			android:textColor="#ffffff"
 			android:background="@drawable/btn_grey"
-            android:text="Page suivante" />
+            android:text="2"/>
+		
+		<Button
+            android:id="@+id/btn_page3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="3"/>
+			
+		<Button
+            android:id="@+id/btn_page4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="4"/>
+		
+		<Button
+            android:id="@+id/btn_page5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="5"/>
 			
         <Button
-            android:id="@+id/btn_search"
+            android:id="@+id/btn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-			android:textColor="#ffffff"
+			android:textColor="#32b3e2"
 			android:background="@drawable/btn_grey"
-            android:text="Ziva !" />
+            android:text="&gt;&gt;" />
     </LinearLayout>
 
     <GridView
@@ -59,8 +88,6 @@
 		android:gravity="center"
 		android:layout_marginTop="10px"
 		android:stretchMode="columnWidth" 
-		android:background="#3c3c3c">  
- 
-</GridView>
+		android:background="#3c3c3c"/>  
 
 </LinearLayout>
