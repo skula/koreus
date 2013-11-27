@@ -66,6 +66,51 @@
 			android:textColor="#ffffff"
 			android:background="@drawable/btn_grey"
             android:text="5"/>
+		
+		<Button
+            android:id="@+id/btn_page6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="6"/>
+		
+		<Button
+            android:id="@+id/btn_page7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="7"/>
+		
+		<Button
+            android:id="@+id/btn_page8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="8"/>
+			
+		<Button
+            android:id="@+id/btn_page9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="9"/>
+		
+		<Button
+            android:id="@+id/btn_page10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/btn_grey"
+            android:text="10"/>
 			
         <Button
             android:id="@+id/btn_next"
