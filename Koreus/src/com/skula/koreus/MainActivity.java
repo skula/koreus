@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 		this.index = 0;
 		this.page = "";
 
-		this.btnPage = new Button[5];
+		this.btnPage = new Button[10];
 
 		this.gridView = (GridView) findViewById(R.id.video_grid);
 		this.gridView.setOnItemClickListener(new OnItemClickListener() {
@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				page = btnPage[0].getText().toString();
 				fillGrid(btnPage[0].getText().toString());
-				for (int i = 0; i < 5; i++) {
+				for (int i = 0; i < 10; i++) {
 					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
 				}
 				btnPage[0].setTextColor(Color.parseColor("#32b3e2"));
@@ -98,7 +98,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				page = btnPage[1].getText().toString();
 				fillGrid(btnPage[1].getText().toString());
-				for (int i = 0; i < 5; i++) {
+				for (int i = 0; i < 10; i++) {
 					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
 				}
 				btnPage[1].setTextColor(Color.parseColor("#32b3e2"));
@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				page = btnPage[2].getText().toString();
 				fillGrid(btnPage[2].getText().toString());
-				for (int i = 0; i < 5; i++) {
+				for (int i = 0; i < 10; i++) {
 					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
 				}
 				btnPage[2].setTextColor(Color.parseColor("#32b3e2"));
@@ -124,7 +124,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				page = btnPage[3].getText().toString();
 				fillGrid(btnPage[3].getText().toString());
-				for (int i = 0; i < 5; i++) {
+				for (int i = 0; i < 10; i++) {
 					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
 				}
 				btnPage[3].setTextColor(Color.parseColor("#32b3e2"));
@@ -137,18 +137,84 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				page = btnPage[4].getText().toString();
 				fillGrid(btnPage[4].getText().toString());
-				for (int i = 0; i < 5; i++) {
+				for (int i = 0; i < 10; i++) {
 					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
 				}
 				btnPage[4].setTextColor(Color.parseColor("#32b3e2"));
 			}
 		});
+
+		btnPage[5] = (Button) findViewById(R.id.btn_page6);
+		btnPage[5].setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				page = btnPage[5].getText().toString();
+				fillGrid(btnPage[5].getText().toString());
+				for (int i = 0; i < 10; i++) {
+					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
+				}
+				btnPage[5].setTextColor(Color.parseColor("#32b3e2"));
+			}
+		});
+
+		btnPage[6] = (Button) findViewById(R.id.btn_page7);
+		btnPage[6].setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				page = btnPage[6].getText().toString();
+				fillGrid(btnPage[6].getText().toString());
+				for (int i = 0; i < 10; i++) {
+					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
+				}
+				btnPage[6].setTextColor(Color.parseColor("#32b3e2"));
+			}
+		});
+
+		btnPage[7] = (Button) findViewById(R.id.btn_page8);
+		btnPage[7].setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				page = btnPage[7].getText().toString();
+				fillGrid(btnPage[7].getText().toString());
+				for (int i = 0; i < 10; i++) {
+					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
+				}
+				btnPage[7].setTextColor(Color.parseColor("#32b3e2"));
+			}
+		});
+
+		btnPage[8] = (Button) findViewById(R.id.btn_page9);
+		btnPage[8].setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				page = btnPage[8].getText().toString();
+				fillGrid(btnPage[8].getText().toString());
+				for (int i = 0; i < 10; i++) {
+					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
+				}
+				btnPage[8].setTextColor(Color.parseColor("#32b3e2"));
+			}
+		});
+
+		btnPage[9] = (Button) findViewById(R.id.btn_page10);
+		btnPage[9].setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				page = btnPage[9].getText().toString();
+				fillGrid(btnPage[9].getText().toString());
+				for (int i = 0; i < 10; i++) {
+					btnPage[i].setTextColor(Color.parseColor("#ffffff"));
+				}
+				btnPage[9].setTextColor(Color.parseColor("#32b3e2"));
+			}
+		});
+
 	}
 
 	private void updatePageLabel() {
 		int p;
-		for (int i = 0; i < 5; i++) {
-			p = index * 5 + i + 1;
+		for (int i = 0; i < 10; i++) {
+			p = index * 10 + i + 1;
 			btnPage[i].setText(String.valueOf(p));
 
 			if (btnPage[i].getText().toString().equals(page)) {
