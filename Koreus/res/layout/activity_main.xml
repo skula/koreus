@@ -81,7 +81,7 @@
 		android:id="@+id/video_grid"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:numColumns="4"
+		android:numColumns="6"
 		android:horizontalSpacing="10dp"
 		android:verticalSpacing="10dp"
 		android:columnWidth="200px"
