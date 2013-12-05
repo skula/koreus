@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.skula.koreus.models.Video;
+import com.skula.koreus.utils.DownloadImageTask;
 import com.skula.koreus.utils.PictureUtils;
 
 public class VideoAdapter extends ArrayAdapter<Video> {
