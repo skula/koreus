@@ -48,11 +48,11 @@ public class KoreusService {
 			String pict;
 			while ((line = br.readLine()) != null) {
 				line = line.trim();
-				if(line.contains("td valign=\"top\"")){
-					url = line.substring(line.indexOf("http://www.koreus.com"), line.indexOf("\"><img"));
-					title = line.substring(line.indexOf("Video\" title=\"") + 14, line.indexOf("\" width=\"150\""));					
+				if(line.contains("<a href=\"/video/") && !line.contains("<h5")){
+					url = line.substring(line.indexOf("/video/"), line.indexOf("\"><img"));
+					title = line.substring(line.indexOf("Video\" title=\"") + 14, line.indexOf("\" style=\"width"));					
 					pict = line.substring(line.indexOf("http://thumbs"), line.indexOf("\" alt=\""));
-					res.add(new Video(url, escapeHTML(title), pict));
+					res.add(new Video("http://www.koreus.com" + url, escapeHTML(title), pict));
 				}
 			}
 			br.close();

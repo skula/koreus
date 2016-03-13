@@ -5,6 +5,7 @@ import java.net.URL;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+
 public class PictureUtils{
 	public static Bitmap loadBitmap(String url){
         URL newurl;
